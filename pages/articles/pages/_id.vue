@@ -28,7 +28,7 @@ export default {
     if (/[0-9]+/.test(params.id)) return true
     return redirect('/articles')
   },
-  async asyncData({ store, $content, params }) {
+  async asyncData({ redirect, store, $content, params }) {
     const count = await $content('articles').only('title').fetch()
     const current = params.id
     if (current > Math.ceil(count.length / store.state.indexPerPage))
@@ -55,9 +55,9 @@ export default {
       return Math.ceil(this.$route.params.id / 15)
     },
     num() {
-      let tmp = []
+      const tmp = []
       for (let n = 1; n <= this.max; n++) {
-        if (n == 1 || n == this.max) {
+        if (n === 1 || n === this.max) {
           tmp.push({ pg: true, num: n })
           continue
         }
@@ -65,7 +65,7 @@ export default {
           tmp.push({ pg: true, num: n })
           continue
         }
-        if (this.current - 2 - 1 == n || n == this.current + 2 + 1) {
+        if (this.current - 2 - 1 === n || n === this.current + 2 + 1) {
           tmp.push({ pg: false, num: '...' })
           continue
         }
