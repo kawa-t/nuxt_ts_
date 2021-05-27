@@ -11,7 +11,7 @@
 <script>
 export default {
   // asyncDataはサーバ側の処理
-  async asyncData({ store, $content, params }) {
+  async asyncData({ $content }) {
     const content = await $content('articles')
       .only(['title', 'path'])
       .sortBy('createdAt', 'desc')
