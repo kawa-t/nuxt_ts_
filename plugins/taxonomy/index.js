@@ -1,0 +1,27 @@
+module.exports = {
+  category: [
+    { text: '技術スタック', slug: 'devstack' },
+    { text: 'プログラミング学習', slug: 'learning' },
+    { text: 'メモ', slug: 'ministack' },
+  ],
+  tags: [
+    { text: 'HTML', slug: 'html' },
+    { text: 'CSS', slug: 'css' },
+    { text: 'Javascript', slug: 'js' },
+    { text: 'jquery', slug: 'jquery' },
+    { text: 'Vue.js', slug: 'vue' },
+    { text: 'Nuxt.js', slug: 'nuxt' },
+    { text: 'webpack', slug: 'webpack' },
+    { text: 'PHP', slug: 'php' },
+    { text: 'Laravel', slug: 'laravel' },
+    { text: 'Python', slug: 'python' },
+    { text: 'Django', slug: 'django' },
+    { text: 'HeadlessCMS', slug: 'headlesscms' },
+    { text: 'wordpress', slug: 'wordpress' },
+    { text: 'concrete5', slug: 'concrete5' },
+    { text: 'ZOOM', slug: 'zoom' },
+    { text: 'インフラ', slug: 'infrastructure' },
+    { text: 'ネットワーク', slug: 'network' },
+    { text: 'Docker', slug: 'docker' },
+  ],
+}
