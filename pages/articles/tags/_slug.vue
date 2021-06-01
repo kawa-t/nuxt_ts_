@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h1>タグ一覧</h1>
-    <article-tag-list :tags="tags" />
+    <h2>Tags</h2>
+    <article-tag-list :tags="tags" class="mb-8" />
     <h2>
-      タグ<span>tags: {{ slug }}</span>
+      Articles <span class="text-base">tag: {{ slug }}</span>
     </h2>
+    <article-list :articles="articles" />
     <p v-if="!articles.length">
       上記で絞られたタグに関連する記事は見つかりませんでした
     </p>
@@ -13,6 +14,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { tags } from '~/utils/tags'
 
