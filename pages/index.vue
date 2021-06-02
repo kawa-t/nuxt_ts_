@@ -46,7 +46,13 @@
 
     <!-- マークダウンのレンダリング箇所 -->
     <!-- <nuxt-content :document="content" /> -->
-    <article-list :articles="articles" />
+    <!-- <article-list :articles="articles" /> -->
+    <ul>
+      <li v-for="doc in docs" :key="doc.path">
+        {{ createdAt(doc.date) }}
+        <nuxt-link :to="doc.path">{{ doc.title }}</nuxt-link>
+      </li>
+    </ul>
     <!-- </div> -->
     <!-- サイドメニュー -->
     <!-- <sidemenu /> -->
@@ -60,8 +66,16 @@ export default {
       .sortBy('date', 'desc')
       .limit(10)
       .fetch()
+
+    const docs = await $content('docs', { deep: true })
+      .only(['path', 'title', 'date'])
+      .where({ slug: 'index' })
+      .sortBy('date', 'desc')
+      .fetch()
+
     return {
       articles,
+      docs,
     }
   },
 }
