@@ -45,7 +45,8 @@
     <!-- </div> -->
 
     <!-- マークダウンのレンダリング箇所 -->
-    <nuxt-content :document="content" />
+    <!-- <nuxt-content :document="content" /> -->
+    <article-list :articles="articles" />
     <!-- </div> -->
     <!-- サイドメニュー -->
     <!-- <sidemenu /> -->
@@ -55,12 +56,12 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const content = await $content('articles', { deep: true })
+    const articles = await $content('articles', { deep: true })
       .sortBy('date', 'desc')
       .limit(10)
       .fetch()
     return {
-      content,
+      articles,
     }
   },
 }

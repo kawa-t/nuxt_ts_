@@ -1,24 +1,25 @@
 <template>
-  <img :src="imgSrc()" :alt="alt" />
+  <ul>
+    <li v-for="article in articles" :key="article.slug" class="truncate">
+      {{ createdAt(article.date) }}
+      <nuxt-link :to="article.path">{{ article.title }}</nuxt-link>
+    </li>
+  </ul>
 </template>
+
 <script>
+import { dateFormat } from '~/utils/format'
+
 export default {
   props: {
-    src: {
-      type: String,
+    articles: {
+      type: Array,
       required: true,
-    },
-    alt: {
-      type: String,
     },
   },
   methods: {
-    imgSrc() {
-      try {
-        return require(`~/assets/image/${this.src}`)
-      } catch (err) {
-        return null
-      }
+    createdAt(value) {
+      return dateFormat(value)
     },
   },
 }
