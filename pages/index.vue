@@ -1,7 +1,7 @@
 <template>
   <div class="p-main-container">
     <!-- <div class="p-main-wrapper"> -->
-    <h2>記事一覧だお</h2>
+    <HomeContainer />
     <!-- メインのエリア -->
     <!-- <div id="l-center-area"> -->
     <!-- サムネイル -->
@@ -60,6 +60,7 @@
   </div>
 </template>
 <script>
+import HomeContainer from '../containers/Home/index'
 export default {
   async asyncData({ $content }) {
     const articles = await $content('articles', { deep: true })
