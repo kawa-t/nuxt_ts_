@@ -60,24 +60,12 @@
   </div>
 </template>
 <script>
-import HomeContainer from '../containers/Home/index'
-export default {
-  async asyncData({ $content }) {
-    const articles = await $content('articles', { deep: true })
-      .sortBy('date', 'desc')
-      .limit(10)
-      .fetch()
+import { defineComponent } from '@nuxtjs/composition-api'
+import HomeContainer from '../containers/Home/index.vue'
 
-    const docs = await $content('docs', { deep: true })
-      .only(['path', 'title', 'date'])
-      .where({ slug: 'index' })
-      .sortBy('date', 'desc')
-      .fetch()
-
-    return {
-      articles,
-      docs,
-    }
+export default defineComponent({
+  components: {
+    HomeContainer,
   },
-}
+})
 </script>
