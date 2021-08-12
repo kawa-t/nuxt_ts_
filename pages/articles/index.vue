@@ -4,11 +4,11 @@
     <li v-for="(c, index) in content" :key="index">
       <nuxt-link :to="c.path">{{ c.title }}</nuxt-link>
     </li>
-    <ArticlePage />
+    <!-- <ArticlePage /> -->
   </div>
 </template>
 <script>
-import ArticlePage from '../articles/index'
+// import ArticlePage from '../articles/index'
 export default {
   // asyncDataはサーバ側の処理
   async asyncData({ $content }) {
@@ -23,8 +23,8 @@ export default {
       content,
     }
   },
-  components: {
-    ArticlePage,
-  },
+  // components: {
+  //   ArticlePage,
+  // },
 }
 </script>

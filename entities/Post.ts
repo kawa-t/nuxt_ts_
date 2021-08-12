@@ -19,7 +19,7 @@ export default class PostEntity {
 
   constructor(props: IPostProps) {
     this._props = {
-      relatedPosts: [],
+      // relatedPosts: [],
       ...props,
     }
   }
@@ -36,56 +36,27 @@ export default class PostEntity {
   }
 }
 
-const AssetFactory = (): Asset => {
-  return {
-    fields: {
-      title: 'vuefes',
-      description: 'Vue Fes Japan 2018',
-      file: {
-        contentType: 'image/jpeg',
-        details: {
-          size: 1000,
-        },
-        fileName: 'vuefes.jpg',
-        url: '//images.ctfassets.net/2p1otbbee5vt/1IT8b2qoAEyc0SOwqSy6QS/f5f517ed6f292497270bf3b85d608dea/vuefes.jpg',
-      },
-    },
-    sys: {
-      type: 'Asset',
-      id: '1IT8b2qoAEyc0SOwqSy6QS',
-      createdAt: '2018-11-09T03:15:59.963Z',
-      updatedAt: '2018-11-09T03:30:05.899Z',
-      locale: 'en-US',
-      contentType: {
-        sys: {
-          id: 'master',
-          type: 'Link',
-          linkType: 'ContentType',
-        },
-      },
-    },
-    toPlainObject(): any {},
-  }
-}
+// const AssetFactory = (): Asset => {
+// }
 
-export const PostPropsFactory = (props?: Partial<IPostProps>): IPostProps => {
-  return {
-    slug: 'dummy',
-    id: 'dummyId',
-    tags: ['Life', 'Space'],
-    summary:
-      '海外ゲストのアテンドスタッフとして、日本初のVue.jsカンファレンスに参加してきました。イベントの参加レポートと、翌日の東京観光の様子をお届けします。 ',
-    content: 'テスト',
-    publishedAt: '2018-11-09T12:30+09:00',
-    title: 'VueFes 2018にスタッフとして参加してきました。',
-    headerImage: AssetFactory(),
-    headerImageLight: AssetFactory(),
-    isPublished: true,
-    relatedPosts: [],
-    ...props,
-  }
-}
+// export const PostPropsFactory = (props?: Partial<IPostProps>): IPostProps => {
+//   return {
+//     slug: 'dummy',
+//     id: 'dummyId',
+//     tags: ['Life', 'Space'],
+//     summary:
+//       '海外ゲストのアテンドスタッフとして、日本初のVue.jsカンファレンスに参加してきました。イベントの参加レポートと、翌日の東京観光の様子をお届けします。 ',
+//     content: 'テスト',
+//     publishedAt: '2018-11-09T12:30+09:00',
+//     title: 'VueFes 2018にスタッフとして参加してきました。',
+//     // headerImage: AssetFactory(),
+//     // headerImageLight: AssetFactory(),
+//     isPublished: true,
+//     relatedPosts: [],
+//     ...props,
+//   }
+// }
 
-export const PostEntityFactory = (props?: Partial<IPostProps>): PostEntity => {
-  return new PostEntity(PostPropsFactory(props))
-}
+// export const PostEntityFactory = (props?: Partial<IPostProps>): PostEntity => {
+//   return new PostEntity(PostPropsFactory(props))
+// }

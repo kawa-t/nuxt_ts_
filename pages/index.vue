@@ -47,12 +47,12 @@
     <!-- マークダウンのレンダリング箇所 -->
     <!-- <nuxt-content :document="content" /> -->
     <!-- <article-list :articles="articles" /> -->
-    <ul>
+    <!-- <ul>
       <li v-for="doc in docs" :key="doc.path">
         {{ createdAt(doc.date) }}
-        <nuxt-link :to="doc.path">{{ doc.title }}</nuxt-link>
-      </li>
-    </ul>
+        <nuxt-link :to="doc.path">{{ doc.title }}</nuxt-link> -->
+    <!-- </li> -->
+    <!-- </ul> -->
     <!-- </div> -->
     <!-- サイドメニュー -->
     <!-- <sidemenu /> -->
