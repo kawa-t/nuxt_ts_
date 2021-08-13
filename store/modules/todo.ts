@@ -11,13 +11,20 @@ type Todo = {
 
 // モジュールの定義
 @Module({
-  stateFactory: true,
+  stateFactory: true, // Nuxtのモジュールであることを宣言する
   namespaced: true,
   name: 'todo',
 })
 export default class Todos extends VuexModule {
   // state
-  private todos: Todo[] = []
+  private todos: Todo[] = [
+    {
+      id: 1,
+      title: '初期からあるやつ',
+      description: 'テストで作ったよ',
+      done: false,
+    },
+  ]
 
   // getters
   public get getTodos() {
