@@ -1,6 +1,6 @@
 {
-  "name": "nuxt_content_book",
-  "version": "1.0.0",
+  "name": "TypeScriptPropertyDecorator",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "nuxt",

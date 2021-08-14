@@ -6,6 +6,8 @@ export default function promiseSample() {
     id: number
   }
 
+  // Promiseの処理を型定義する
+  // Promiseの処理の結果、Profileの型の形式のオブジェクトまたはnullが帰ってくる
   type FetchProfileType = () => Promise<Profile | null>
 
   // 定義した型をアノテーションする
