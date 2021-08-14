@@ -1,20 +1,26 @@
 <template>
   <div>
-    <button @click="numberup">{{ hoge }}</button>
+    <button @click="callbackfn">{{ callbackVer }}</button>
+    <button @click="promisefn">{{ promiseVer }}</button>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import calling from '../utils/callback'
+import callbackAction from '../utils/callback'
+import promiseAction from '../utils/promise'
 
 @Component
 export default class CounterComponent extends Vue {
-  hoge: number = 0
+  callbackVer: string = 'callback関数で実行'
+  promiseVer: string = 'Promiseで実行'
 
   // メソッド
-  increment() {
-    this.hoge = 3
-    calling()
+  callbackfn() {
+    callbackAction()
+  }
+
+  promisefn() {
+    promiseAction()
   }
 
   numberup() {
