@@ -1,15 +1,14 @@
 <template>
   <div class="p-main-container">
-    <AsyncPractice />
+    <div>
+      <nuxt-link to="/practice/asynclesson">非同期処理について</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
-import AsyncPractice from '../components/asyncPractice.vue'
 
 export default defineComponent({
-  components: {
-    AsyncPractice,
-  },
+  components: {},
 })
 </script>
