@@ -1,7 +1,10 @@
 <template>
-  <div class="p-main-container">
+  <div class="container mx-auto">
     <div>
       <nuxt-link to="/practice/asynclesson">非同期処理について</nuxt-link>
+    </div>
+    <div>
+      <nuxt-link to="/practice/objectlesson">基本処理について</nuxt-link>
     </div>
   </div>
 </template>

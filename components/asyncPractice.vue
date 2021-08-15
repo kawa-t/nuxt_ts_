@@ -1,12 +1,61 @@
 <template>
   <div>
-    <button @click="callbackfn">{{ callbackVer }}</button>
-    <button @click="promisefn">{{ promiseVer }}</button>
-    <button @click="asyncawaitfn">{{ asyncAwaitVer }}</button>
-    <div class="prism__block">
+    <div class="mt-5">
+      <button
+        class="
+          px-2
+          py-1
+          text-green-500
+          border border-green-500
+          font-semibold
+          rounded
+          hover:bg-green-100
+        "
+        :disabled="isStop"
+        :class="{ disable: isStop }"
+        @click="callbackfn('callback')"
+      >
+        {{ callbackVer }}
+      </button>
+      <button
+        class="
+          px-2
+          py-1
+          text-yellow-500
+          border border-yellow-500
+          font-semibold
+          rounded
+          hover:bg-yellow-100
+        "
+        :disabled="isStop"
+        :class="{ disable: isStop }"
+        @click="promisefn('promise')"
+      >
+        {{ promiseVer }}
+      </button>
+      <button
+        class="
+          px-2
+          py-1
+          text-blue-500
+          border border-blue-500
+          font-semibold
+          rounded
+          hover:bg-blue-100
+        "
+        :disabled="isStop"
+        :class="{ disable: isStop }"
+        @click="asyncawaitfn('async')"
+      >
+        {{ asyncAwaitVer }}
+      </button>
+    </div>
+    <div v-show="isActive == 'callback'">普通の書き方</div>
+    <div v-show="isActive == 'promise'">Promiseの書き方</div>
+    <div v-show="isActive == 'async'">
       <span class="prism-title">AsyncとAwaitを使って記述</span>
-      <pre>
-        <code class="language-js">
+      <pre class="shadow-lg">
+        <code class="language-typescript">
 export default async function asyncawaitSmaple() {
   const url = &#039;https://api.github.com/users/kawa-t&#039;
 
@@ -17,7 +66,7 @@ export default async function asyncawaitSmaple() {
 
   // Promiseの処理を型定義する
   // Promiseの処理の結果、Profileの型の形式のオブジェクトまたはnullが帰ってくる
-  type FetchProfileType = () =&gt; Promise&lt;Profile | null | undefined&gt;
+  type FetchProfileType = () =&gt; Promise&lt;Profile | null | undefined &gt;
 
   // 上で非同期処理の型と定義したので、アノテーションでこの関数は非同期処理であることを明示する
   const fetchProfile: FetchProfileType = async () =&gt; {
@@ -70,26 +119,64 @@ export default class CounterComponent extends Vue {
   callbackVer: string = 'callback関数で実行'
   promiseVer: string = 'Promiseで実行'
   asyncAwaitVer: string = 'AsyncAwawitで実行'
+  isActive: string = 'callback'
+  isStop: boolean = false
+  timeout: number = 10000 // 10秒間
 
   // メソッド
-  callbackfn() {
-    callbackAction()
+  callbackfn(version: string) {
+    this.isActive = version
+    this.buttonControl(version)
   }
 
-  promisefn() {
-    promiseAction()
+  promisefn(version: string) {
+    this.isActive = version
+    this.buttonControl(version)
   }
 
-  asyncawaitfn() {
-    asyncawaitAction()
+  asyncawaitfn(version: string) {
+    this.isActive = version
+    this.buttonControl(version)
   }
 
+  buttonControl(version: string) {
+    if (this.isStop === false) {
+      switch (version) {
+        case 'callback':
+          callbackAction()
+          break
+        case 'promise':
+          promiseAction()
+          break
+        case 'async':
+          asyncawaitAction()
+          break
+      }
+      this.isStop = true
+    }
+    // ボタン制御
+    setTimeout(() => {
+      this.isStop = false
+    }, this.timeout)
+  }
+
+  // Computed
+
+  // Mounted
   mounted() {
     Prism.highlightAll()
   }
 }
 </script>
 <style>
+.disable {
+  @apply px-2
+  py-1
+  border border-gray-500
+  font-semibold
+  rounded
+  hover:bg-gray-100 opacity-50;
+}
 .prism-title {
   position: relative;
   top: 35px;

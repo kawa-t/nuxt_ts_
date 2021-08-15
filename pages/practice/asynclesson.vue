@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mx-auto w-3/4">
     <AsyncPractice />
     <nuxt-link to="/">もどる</nuxt-link>
   </div>
