@@ -3,7 +3,7 @@ export default function objectSample(num: number) {
     type Hogefunction = (hikisuu: string) => string
 
     const roadfunction: Hogefunction = (street) => 'street name is' + street
-    const resultRoad = roadfunction('沖縄')
+    const resultRoad = roadfunction('Tokyo')
 
     return resultRoad
   }
