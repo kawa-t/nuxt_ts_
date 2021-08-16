@@ -9,15 +9,16 @@ export default function objectSample(num: number) {
   }
 
   if (num === 2) {
-    // オブジェクトの型のエイリアス
-    // type Country = {
-    //   lang: string
-    //   count: number
-    // }
-    // const japan: Country = {
-    //   lang: 'ja',
-    //   count: 3,
-    // }
-    return '23'
+    // 配列の型を定義する
+    // number[]
+    function SumOfpos(arr: number[]) {
+      return arr.filter((num) => num >= 0).reduce((acc, num) => acc + num, 0)
+    }
+    const sum: number = SumOfpos([1, 3, -2, 0])
+    console.log(sum)
+  }
+
+  if (num === 3) {
+    console.log(3)
   }
 }
