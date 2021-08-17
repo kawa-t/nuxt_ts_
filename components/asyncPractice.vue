@@ -50,7 +50,9 @@
         {{ asyncAwaitVer }}
       </button>
     </div>
-    <div v-show="isActive == 'callback'">普通の書き方</div>
+    <div v-show="isActive == 'callback'">
+      <span class="prism-title">普通の書き方</span>
+    </div>
     <div v-show="isActive == 'promise'">
       <span class="prism-title">Promiseの書き方</span>
       <pre class="shadow-lg">
@@ -65,7 +67,7 @@ export default function promiseSample() {
 
   // Promiseの処理を型定義する
   // Promiseの処理の結果、Profileの型の形式のオブジェクトまたはnullが帰ってくる
-  type FetchProfileType = () => Promise &#039;Profile | null &gt;
+  type FetchProfileType = () => Promise &lt; Profile | null &gt;
 
   // 定義した型をアノテーションする
   const fetchProfile: FetchProfileType = () => {

@@ -19,6 +19,16 @@ export default function objectSample(num: number) {
   }
 
   if (num === 3) {
-    console.log(3)
+    // 文字列を指定する
+    type Speed = 'slow' | 'medium' | 'fast'
+    function getSpeed(speed: Speed) {
+      switch (speed) {
+        case 'slow':
+          return 10
+        case 'medium':
+          return 50
+      }
+    }
+    console.log(getSpeed('fast'))
   }
 }
