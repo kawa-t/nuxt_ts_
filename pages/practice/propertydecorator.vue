@@ -4,7 +4,7 @@
     <div>データの表示:{{ myWatch }}</div>
     <p>Computed: {{ countByComputed }}</p>
     <button @click="increment">増やす</button>
-    <button @click="increment">増やす</button>
+    <button @click="decrement">減らす</button>
   </div>
 </template>
 <script lang="ts">

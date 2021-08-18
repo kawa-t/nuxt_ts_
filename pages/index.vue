@@ -6,6 +6,9 @@
     <div>
       <nuxt-link to="/practice/objectlesson">基本処理について</nuxt-link>
     </div>
+    <div>
+      <nuxt-link to="/practice/propertydecorator">カウンタ</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
