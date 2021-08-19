@@ -31,4 +31,16 @@ export default function objectSample(num: number) {
     }
     console.log(getSpeed('fast'))
   }
+
+  if (num === 24) {
+    interface AddEventListenerOptionsObject {
+      capture?: boolean
+      once?: boolean
+      passive?: boolean
+    }
+
+    declare function addEvenrListerner(
+      options?: boolean | AddEventListenerOptionsObject
+    )
+  }
 }
