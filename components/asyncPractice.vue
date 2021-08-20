@@ -244,7 +244,7 @@ export default class CounterComponent extends Vue {
   top: 35px;
   right: 17px;
   z-index: 30;
-  background: #272822;
+  background: #1f2f3c;
   font-size: 90%;
   display: inline-block;
   color: #fff;
@@ -252,5 +252,10 @@ export default class CounterComponent extends Vue {
   margin: 0px 20px;
   padding: 3px 15px 0px 15px;
   border-radius: 0px 5px 0px 0px;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #1f2f3c !important;
 }
 </style>

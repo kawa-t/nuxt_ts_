@@ -33,14 +33,16 @@ export default function objectSample(num: number) {
   }
 
   if (num === 24) {
-    interface AddEventListenerOptionsObject {
-      capture?: boolean
-      once?: boolean
-      passive?: boolean
-    }
-
-    declare function addEvenrListerner(
-      options?: boolean | AddEventListenerOptionsObject
-    )
+    // interface AddEventListenerOptionsObject {
+    //   capture?: boolean
+    //   once?: boolean
+    //   passive?: boolean
+    // }
+    // declare function addEvenrListerner(
+    //   type: string,
+    //   handler: () => void,
+    //   options?: boolean | AddEventListenerOptionsObject
+    // ): void
+    // addEvenrListerner('footer', () => {})
   }
 }
