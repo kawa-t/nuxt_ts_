@@ -45,4 +45,55 @@ export default function objectSample(num: number) {
     // ): void
     // addEvenrListerner('footer', () => {})
   }
+
+  if (num === 34) {
+    type Action =
+      | {
+          type: 'increment'
+          amount: number
+        }
+      | {
+          type: 'decrement'
+          amount: number
+        }
+      | {
+          type: 'reset'
+          value: number
+        }
+
+    const reducer = (state: number, action: Action) => {
+      switch (action.type) {
+        case 'increment':
+          return state + action.amount
+        case 'decrement':
+          return state - action.amount
+        case 'reset':
+          return action.value
+        default:
+          break
+      }
+    }
+    console.log(reducer)
+  }
+
+  if (num === 41) {
+    function getFoo<T extends object>(
+      obj: T
+    ): T extends { foo: infer E } ? E : unknown {
+      return (obj as any).foo
+    }
+
+    // numなら数値型
+    const numShow = getFoo({
+      foo: 123,
+    })
+
+    const strShow = getFoo({
+      foo: 'hoge',
+      bar: 0,
+    })
+
+    console.log(numShow)
+    console.log(strShow)
+  }
 }
