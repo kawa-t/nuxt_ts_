@@ -170,10 +170,10 @@ export default async function asyncawaitSmaple() {
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import Prism from '@/plugins/prism'
 import callbackAction from '../utils/asyncPractice/callback'
 import promiseAction from '../utils/asyncPractice/promise'
 import asyncawaitAction from '../utils/asyncPractice/asyncawait'
+import Prism from '@/plugins/prism'
 
 @Component
 export default class CounterComponent extends Vue {
