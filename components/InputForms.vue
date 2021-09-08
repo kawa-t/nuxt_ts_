@@ -41,7 +41,8 @@
   </v-container>
 </template>
 <script lang="ts">
-import { Component, Vue, Prop, Watch, Emit } from 'nuxt-property-decorator'
+import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator'
+import axios from '@nuxtjs/axios'
 
 interface Priority {
   label: string
@@ -66,7 +67,7 @@ interface ErrorResponse {
 export default class FormVue extends Vue {
   @Prop({ type: Number, required: false }) initPriority!: number
   @Prop({ type: String, required: false }) initTodo!: string
-  @Prop({ type: String, required: false }) paramld?: string
+  @Prop({ type: String, required: false }) paramId?: string
   selectedPriority?: number | null = null
   labelList: string[] = ['todo', 'priority']
   todo?: string = ''
@@ -93,9 +94,9 @@ export default class FormVue extends Vue {
   public initTodoList() {}
 
   submit(): void {
-    this.initErrorInfo()
+    this.initErrorinfo()
     if (this.paramId) {
-      this.putSubmit(this.paramld)
+      this.putSubmit(this.paramId)
     } else {
       this.postSubmit()
     }
@@ -105,6 +106,26 @@ export default class FormVue extends Vue {
     try {
       axios
         .post(process.env.API + '/tasks/', {
+          todo: this.todo,
+          priority: this.selectedPriority,
+        })
+        .then(() => {
+          this.initFormValue()
+          this.initTodoList()
+        })
+        .catch((error) => {
+          const errorList = error.response.data
+          this.displayError(errorList)
+        })
+    } catch (e) {
+      return e
+    }
+  }
+
+  putSubmit(id: string): void {
+    try {
+      axios
+        .put(process.env.API + '/tasks/' + id + '/', {
           todo: this.todo,
           priority: this.selectedPriority,
         })
@@ -140,6 +161,16 @@ export default class FormVue extends Vue {
       this.errors[key].message = errorList[key]
       this.errors[key].flag = true
     }
+  }
+
+  @Watch('initPriority')
+  onChangeInitPriority(newVal: number): void {
+    this.selectedPriority = newVal
+  }
+
+  @Watch('initTodo')
+  onChangeInitTodo(newVal: string): void {
+    this.todo = newVal
   }
 }
 </script>
