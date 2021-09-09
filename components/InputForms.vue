@@ -42,7 +42,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator'
-import axios from '@nuxtjs/axios'
+import axios from 'axios'
 
 interface Priority {
   label: string
