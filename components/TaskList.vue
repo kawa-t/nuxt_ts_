@@ -2,7 +2,7 @@
   <div></div>
 </template>
 <script lang="ts">
-import { Componrnt, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import axios from 'axios'
 import InputForm from '@/components/InputForms.vue'
 
@@ -25,5 +25,32 @@ axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN'
     InputForm,
   },
 })
-export default class TaskList extends Vue {}
+export default class TaskList extends Vue {
+  taskList: Task[] = []
+  priority: Priority = { 0: '小', 1: '中', 2: '大' }
+  @Prop({ type: Boolean, required: true })
+  completeFlag!: boolean
+
+  getTodoList() {
+    try {
+      axios
+        .get(process.env.API + '/tasks/', {
+          responseType: 'json',
+          params: { complete_flag: this.completeFlag },
+        })
+        .then((response) => {
+          this.taskList = response.data
+        })
+        .catch((error) => {
+          return error
+        })
+    } catch (e) {
+      return e
+    }
+  }
+
+  created() {
+    this.getTodoList()
+  }
+}
 </script>
