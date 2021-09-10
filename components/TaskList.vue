@@ -49,6 +49,34 @@ export default class TaskList extends Vue {
     }
   }
 
+  completedClick(id: string) {
+    try {
+      axios
+        .patch(process.env.API + '/tasks/' + id + '/', {
+          complete_flag: !this.completeFlag,
+        })
+        .then(() => {
+          this.getTodoList()
+        })
+    } catch (e) {
+      return e
+    }
+  }
+
+  deleteClick(id: string) {
+    try {
+      axios.delete(process.env.API + '/tasks/' + id + '/').then(() => {
+        this.getTodoList()
+      })
+    } catch (e) {
+      return e
+    }
+  }
+
+  stringPriority(priority: number): string {
+    return this.priority[priority]
+  }
+
   created() {
     this.getTodoList()
   }
