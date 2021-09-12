@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <div>
+    <template v-if="!completeFlag">
+      <InputForm @init-todo-list="getTodoLIst()" />
+    </template>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
