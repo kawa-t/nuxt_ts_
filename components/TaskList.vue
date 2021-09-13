@@ -3,6 +3,20 @@
     <template v-if="!completeFlag">
       <InputForm @init-todo-list="getTodoLIst()" />
     </template>
+    <v-container fluid>
+      <v-simple-table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>やること</th>
+            <th>優先度</th>
+            <th>ステータス</th>
+            <th>編集</th>
+            <th>削除</th>
+          </tr>
+        </thead>
+      </v-simple-table>
+    </v-container>
   </div>
 </template>
 <script lang="ts">
