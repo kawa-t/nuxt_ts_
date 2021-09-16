@@ -11,10 +11,13 @@
             <th>やること</th>
             <th>優先度</th>
             <th>ステータス</th>
-            <th>編集</th>
+            <th v-if="!completeFlag" class="text-center">編集</th>
             <th>削除</th>
           </tr>
         </thead>
+        <tbody>
+          <tr v-for="task in taskList" :key="task.id"></tr>
+        </tbody>
       </v-simple-table>
     </v-container>
   </div>
