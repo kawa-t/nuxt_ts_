@@ -16,7 +16,30 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="task in taskList" :key="task.id"></tr>
+          <tr v-for="task in taskList" :key="task.id">
+            <td>{{ task.id }}</td>
+            <td>{{ task.todo }}</td>
+            <td>{{ stringPriority(task.priority) }}</td>
+            <td v-if="!completeFlag" class="text-center">
+              <v-btn
+                class="ma-2"
+                color="primary"
+                dark
+                @click="completeClick(task.id)"
+                >Complete</v-btn
+              >
+            </td>
+            <td v-else class="text-center">
+              <v-btn
+                class="ma-2"
+                color="secondary"
+                dark
+                @click="compkleteClick(task.id)"
+                >Incomplete</v-btn
+              >
+              <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
+            </td>
+          </tr>
         </tbody>
       </v-simple-table>
     </v-container>
