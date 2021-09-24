@@ -30,4 +30,9 @@ export default class TodoComponent extends Vue {
     this.current === State.All ? true : this.current === t.state)
   }
 
+  private created() {
+    this.todos = todoStorage
+  }
+
+  // private addTodo()
 }
