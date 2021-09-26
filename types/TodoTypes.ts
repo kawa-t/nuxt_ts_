@@ -7,5 +7,5 @@ export enum State {
 export interface TodoItemindex {
   id: number
   name: string
-  sate: State.Workking | State.Done
+  state: State.Workking | State.Done
 }

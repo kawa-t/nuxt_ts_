@@ -8,8 +8,11 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Watch } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
+import TodoStorage from './todoStorage'
 import { State, TodoItemindex } from '@/types/TodoTypes'
+
+const todoStorage = new TodoStorage()
 
 // Class Componentで記述
 @Component
@@ -31,8 +34,15 @@ export default class TodoComponent extends Vue {
   }
 
   private created() {
-    this.todos = todoStorage
+    this.todos = todoStorage.fetchAll()
   }
 
   // private addTodo()
+  private addTodo(){
+    // HTML要素のname
+    const name = this.$refs.name as HTMLInputElement
+    if(!name.value.length) {
+      return false
+    }
+  }
 }
