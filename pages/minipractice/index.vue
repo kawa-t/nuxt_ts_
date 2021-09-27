@@ -21,7 +21,7 @@ export default class TodoComponent extends Vue {
 
   private labels = new Map<State, string>([
     [State.All, 'ずべて'],
-    [State.Workking, '作業中'],
+    [State.Working, '作業中'],
     [State.All, '完了'],
   ])
 
@@ -44,5 +44,26 @@ export default class TodoComponent extends Vue {
     if(!name.value.length) {
       return false
     }
+    this.todos.push({
+      id: todoStorage.nextId,
+      name: name.value,
+      state: State.Working
+    })
+    name.value = ''
+  }
+
+  // 削除
+  private removeTodo(todo:TodoItemindex) {
+    const index = this.todos.indexOf(todo)
+    this.todos.splice(index, 1)
+  }
+
+  // 作業中or完了
+  private toggleState(todo: TodoItemindex) {
+    todo.state = todo.state === State.Working ? State.Done : State.Working
+  }
+
+  @Watch('todos', {deep: true}){
+
   }
 }

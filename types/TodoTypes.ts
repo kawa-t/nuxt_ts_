@@ -1,11 +1,11 @@
 export enum State {
   All,
-  Workking,
+  Working,
   Done,
 }
 
 export interface TodoItemindex {
   id: number
   name: string
-  state: State.Workking | State.Done
+  state: State.Working | State.Done
 }
