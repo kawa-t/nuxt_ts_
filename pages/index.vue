@@ -9,6 +9,9 @@
     <div>
       <nuxt-link to="/practice/propertydecorator">カウンタ</nuxt-link>
     </div>
+    <div>
+      <nuxt-link to="/minipractice">todo</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
