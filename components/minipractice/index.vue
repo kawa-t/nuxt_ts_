@@ -6,8 +6,16 @@
     </lavel>
     <table>
       <thead>
-        <tr></tr>
+        <tr>
+          <th class="id">ID</th>
+          <th class="comment">コメント</th>
+          <th class="state">状態</th>
+          <th class="button">-</th>
+        </tr>
       </thead>
+      <tbody>
+        <tr v-for="todo in filteredTodos" :key="todo.id"></tr>
+      </tbody>
     </table>
   </div>
 </template>
