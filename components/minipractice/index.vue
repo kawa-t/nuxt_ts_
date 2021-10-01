@@ -14,7 +14,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="todo in filteredTodos" :key="todo.id"></tr>
+        <tr v-for="todo in filteredTodos" :key="todo.id">
+          <th>{{ todo.id }}</th>
+        </tr>
       </tbody>
     </table>
   </div>
