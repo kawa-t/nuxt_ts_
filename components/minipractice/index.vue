@@ -16,6 +16,12 @@
       <tbody>
         <tr v-for="todo in filteredTodos" :key="todo.id">
           <th>{{ todo.id }}</th>
+          <th>{{ todo.name }}</th>
+          <td class="state">
+            <button @click="toddleState(todo)">
+              {{ labels.get(todo, state) }}
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
