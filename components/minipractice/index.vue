@@ -22,9 +22,14 @@
               {{ labels.get(todo, state) }}
             </button>
           </td>
+          <td class="button">
+            <button @click.shift="removeTOdo(todo)">削除</button>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    <p>Ctrl + Click</p>
   </div>
 </template>
 <script lang="ts">
