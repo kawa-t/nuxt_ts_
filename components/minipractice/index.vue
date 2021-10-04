@@ -1,9 +1,9 @@
 <template>
   <div>
-    <lavel v-for="[state, text] in Array.from(labels)" :key="state">
+    <label v-for="[state, text] in Array.from(labels)" :key="state">
       <input v-model="current" type="radio" :value="state" />
       {{ text }}
-    </lavel>
+    </label>
     <table>
       <thead>
         <tr>
@@ -23,13 +23,19 @@
             </button>
           </td>
           <td class="button">
-            <button @click.shift="removeTOdo(todo)">削除</button>
+            <button @click.shift="removeTodo(todo)">削除</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <p>Ctrl + Click</p>
+
+    <div>add</div>
+    <form @submit.prevent="addTodo">
+      コメント<input type="text" ref="name" />
+      <button type="submit">add</button>
+    </form>
   </div>
 </template>
 <script lang="ts">
