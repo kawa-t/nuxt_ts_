@@ -1,40 +1,41 @@
 <template>
   <div>
-    <label v-for="[state, text] in Array.from(labels)" :key="state">
-      <input v-model="current" type="radio" :value="state" />
-      {{ text }}
-    </label>
-    <table>
-      <thead>
-        <tr>
-          <th class="id">ID</th>
-          <th class="comment">コメント</th>
-          <th class="state">状態</th>
-          <th class="button">-</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="todo in filteredTodos" :key="todo.id">
-          <th>{{ todo.id }}</th>
-          <th>{{ todo.name }}</th>
-          <td class="state">
-            <button @click="toddleState(todo)">
-              {{ labels.get(todo, state) }}
-            </button>
-          </td>
-          <td class="button">
-            <button @click.shift="removeTodo(todo)">削除</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="my-10">
+      <label v-for="[state, text] in Array.from(labels)" :key="state">
+        <input v-model="current" type="radio" :value="state" />
+        {{ text }}
+      </label>
+    </div>
+    <div>{{ filteredTodos.length }} 件を表示中</div>
+
+    <!-- ヘッダー -->
+    <div class="flex w-2/3">
+      <div class="id">ID</div>
+      <div class="comment">コメント</div>
+      <div class="state">状態</div>
+      <div class="button">-</div>
+    </div>
+    <div v-for="todo in filteredTodos" :key="todo.id" class="flex">
+      <div class="flex">
+        <div>{{ todo.id }}</div>
+        <div>
+          <button @click="toddleState(todo)">
+            {{ labels.get(todo.state) }}
+          </button>
+        </div>
+      </div>
+      <div class="flex">
+        <div>{{ todo.name }}</div>
+        <div><button @click.shift="removeTodo(todo)">削除</button></div>
+      </div>
+    </div>
 
     <p>Ctrl + Click</p>
 
     <div>add</div>
     <form @submit.prevent="addTodo">
-      コメント<input type="text" ref="name" />
-      <button type="submit">add</button>
+      コメント<input class="mx-4" type="text" ref="name" />
+      <button class="m-4" type="submit">追加する</button>
     </form>
   </div>
 </template>
