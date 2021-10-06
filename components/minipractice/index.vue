@@ -15,11 +15,26 @@
       <div class="state">状態</div>
       <div class="button">-</div>
     </div>
-    <div v-for="todo in filteredTodos" :key="todo.id" class="flex">
+    <div
+      v-for="todo in filteredTodos"
+      :key="todo.id"
+      class="flex h-14 content-center items-center"
+    >
       <div class="flex">
-        <div>{{ todo.id }}</div>
-        <div>
-          <button @click="toddleState(todo)">
+        <div class="p-4">{{ todo.id }}</div>
+        <div class="p-4">
+          <button
+            class="
+              bg-blue-500
+              hover:bg-blue-700
+              text-white
+              font-bold
+              py-2
+              px-4
+              rounded-full
+            "
+            @click="toggleState(todo)"
+          >
             {{ labels.get(todo.state) }}
           </button>
         </div>
