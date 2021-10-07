@@ -9,20 +9,20 @@
     <div>{{ filteredTodos.length }} 件を表示中</div>
 
     <!-- ヘッダー -->
-    <div class="flex w-2/3">
-      <div class="id">ID</div>
-      <div class="comment">コメント</div>
-      <div class="state">状態</div>
-      <div class="button">-</div>
+    <div class="flex h-14 content-center items-center w-2/3">
+      <div class="id p-4">ID</div>
+      <div class="comment p-6">コメント</div>
+      <div class="state p-4">状態</div>
+      <div class="button p-4">-</div>
     </div>
     <div
       v-for="todo in filteredTodos"
       :key="todo.id"
-      class="flex h-14 content-center items-center"
+      class="flex h-14 mb-7 content-center items-center"
     >
-      <div class="flex">
+      <div class="flex items-center">
         <div class="p-4">{{ todo.id }}</div>
-        <div class="p-4">
+        <div class="p-6">
           <button
             class="
               bg-blue-500
@@ -39,13 +39,28 @@
           </button>
         </div>
       </div>
-      <div class="flex">
-        <div>{{ todo.name }}</div>
-        <div><button @click.shift="removeTodo(todo)">削除</button></div>
+      <div class="flex items-center">
+        <div class="px-8">{{ todo.name }}</div>
+        <div>
+          <button
+            class="
+              bg-red-500
+              hover:bg-red-700
+              text-white
+              font-bold
+              py-2
+              px-4
+              rounded-full
+            "
+            @click.shift="removeTodo(todo)"
+          >
+            削除
+          </button>
+        </div>
       </div>
     </div>
 
-    <p>Ctrl + Click</p>
+    <p>Ctrlを押しながらClick</p>
 
     <div>add</div>
     <form @submit.prevent="addTodo">
@@ -69,7 +84,7 @@ export default class TodoComponent extends Vue {
   private labels = new Map<State, string>([
     [State.All, 'ずべて'],
     [State.Working, '作業中'],
-    [State.All, '完了'],
+    [State.Done, '完了'],
   ])
 
   // 現在表示中の作業区分
