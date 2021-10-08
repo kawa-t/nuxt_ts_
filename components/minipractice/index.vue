@@ -62,7 +62,7 @@
 
     <p>Ctrlを押しながらClick</p>
 
-    <div>add</div>
+    <div>追加する</div>
     <form @submit.prevent="addTodo">
       コメント<input class="mx-4" type="text" ref="name" />
       <button class="m-4" type="submit">追加する</button>
@@ -82,7 +82,7 @@ export default class TodoComponent extends Vue {
   private todos: TodoItemindex[] = []
 
   private labels = new Map<State, string>([
-    [State.All, 'ずべて'],
+    [State.All, 'すべて'],
     [State.Working, '作業中'],
     [State.Done, '完了'],
   ])
