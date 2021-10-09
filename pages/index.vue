@@ -12,6 +12,9 @@
     <div>
       <nuxt-link to="/minipractice">todo</nuxt-link>
     </div>
+    <div>
+      <nuxt-link to="/pokedex">pokedex</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
