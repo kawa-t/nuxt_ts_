@@ -4,14 +4,14 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  components: {
-    get urlsrc() {
-      const index = 3
-      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`
-    },
+  name: 'Pokedex',
+  setup() {
+    onMounted(() => {
+      getPokemonData()
+    })
   },
 })
 </script>
