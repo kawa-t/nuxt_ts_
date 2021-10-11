@@ -41,6 +41,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/markdownit',
+    '@nuxt/http',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

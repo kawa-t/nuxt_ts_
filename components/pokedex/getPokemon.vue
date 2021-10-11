@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'Pokedex',
   setup() {
     onMounted(() => {
-      getPokemonData()
+      // getPokemonData()
     })
   },
 })

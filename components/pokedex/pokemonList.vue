@@ -7,19 +7,23 @@
 import {
   defineComponent,
   useAsync,
-  useContext,
-  // onMounted,
+  // useContext,
+  onMounted,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'Pokedex',
   setup() {
-    const { $http } = useContext()
-    const posts = useAsync(() => $http.$get(''))
+    // const { $http } = useContext()
+    // const posts = useAsync(() => $http.$get(''))
 
-    // onMounted(() => {
-    //   getPokemonData()
-    // })
+    onMounted(() => {
+        async asyncData({
+      const test = awat $http.$get('')
+    }){
+
+    }
+    })
 
     return {
       posts,
