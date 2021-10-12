@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="urlsrc" />
+    <!-- <img :src="urlsrc" /> -->
   </div>
 </template>
 <script lang="ts">
