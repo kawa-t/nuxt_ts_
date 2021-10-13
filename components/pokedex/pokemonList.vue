@@ -1,6 +1,9 @@
 <template>
   <div>
-    <img :src="PokemonUrl" />
+    <img :src="state.imgUrl" />
+    <div>
+      <p>ずかんNo.{{ state.resultnum }}</p>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -9,7 +12,9 @@ import {
   // useAsync,
   // useContext,
   onMounted,
+  reactive,
 } from '@nuxtjs/composition-api'
+const POKEMON_MAX_NO = 898
 
 export default defineComponent({
   name: 'Pokedex',
@@ -21,18 +26,23 @@ export default defineComponent({
     //   )
     // )
     // console.log(posts)
+    const state = reactive({
+      imgUrl: '',
+      resultnum: 0,
+    })
 
-    const PokemonUrl = () => {
-      console.log('pass')
-      return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png'
+    function PokemonUrl(num: number) {
+      state.resultnum = Math.floor(Math.random() * num)
+      state.imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${state.resultnum}.png`
     }
 
     onMounted(() => {
-      PokemonUrl()
+      PokemonUrl(POKEMON_MAX_NO)
     })
 
     return {
-      // posts,
+      state,
+      PokemonUrl,
     }
   },
 })
