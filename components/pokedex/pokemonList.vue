@@ -4,6 +4,9 @@
     <div>
       <p>ずかんNo.{{ state.resultnum }}</p>
     </div>
+    <div>
+      <button @click="changePokemon()">変える</button>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -36,6 +39,11 @@ export default defineComponent({
       state.imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${state.resultnum}.png`
     }
 
+    function changePokemon(): void {
+      state.resultnum = Math.floor(Math.random() * POKEMON_MAX_NO)
+      state.imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${state.resultnum}.png`
+    }
+
     onMounted(() => {
       PokemonUrl(POKEMON_MAX_NO)
     })
@@ -43,6 +51,7 @@ export default defineComponent({
     return {
       state,
       PokemonUrl,
+      changePokemon,
     }
   },
 })
