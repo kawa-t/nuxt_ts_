@@ -7,6 +7,13 @@
     <div>
       <button @click="changePokemon()">変える</button>
     </div>
+    <!-- <div>
+      <button @click="callPokemon()">呼び出す</button>
+    </div> -->
+    <div>
+      <input v-model="changePokemonNo" type="text" />
+      <button @click="callPokemonNo()">Noで変える</button>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -32,6 +39,7 @@ export default defineComponent({
     const state = reactive({
       imgUrl: '',
       resultnum: 0,
+      changePokemonNo: 0,
     })
 
     function PokemonUrl(num: number) {
@@ -44,6 +52,10 @@ export default defineComponent({
       state.imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${state.resultnum}.png`
     }
 
+    function callPokemonNo(): void {
+      state.imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${state.changePokemonNo}.png`
+    }
+
     onMounted(() => {
       PokemonUrl(POKEMON_MAX_NO)
     })
@@ -52,6 +64,7 @@ export default defineComponent({
       state,
       PokemonUrl,
       changePokemon,
+      callPokemonNo,
     }
   },
 })
