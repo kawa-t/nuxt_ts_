@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="poke__index">
     <img :src="state.imgUrl" />
     <div>
       <p>ずかんNo.{{ state.resultnum }}</p>
@@ -7,11 +7,9 @@
     <div>
       <button @click="changePokemon()">変える</button>
     </div>
-    <!-- <div>
-      <button @click="callPokemon()">呼び出す</button>
-    </div> -->
+
     <div>
-      <input v-model="changePokemonNo" type="text" />
+      <input v-model="state.changePokemonNo" type="text" />
       <button @click="callPokemonNo()">Noで変える</button>
     </div>
   </div>
@@ -69,3 +67,13 @@ export default defineComponent({
   },
 })
 </script>
+<style scoped>
+.poke__index {
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+</style>
