@@ -9,6 +9,12 @@ import { Vue, Watch } from 'vue-property-decorator'
   components: {},
 })
 export default class ClassApp extends Vue {
-  @Watch("count", {immediate: true})
+  public count: number = 0
+  @Watch('count', { immediate: true })
+  public fCount(value: number): void {
+    if (value > 50) {
+      this.count = 0
+    }
+  }
 }
 </script>
