@@ -10,6 +10,10 @@ import { Vue, Watch } from 'vue-property-decorator'
 })
 export default class ClassApp extends Vue {
   public count: number = 0
+  public countUp(): void {
+    this.count++
+  }
+  // eslint-disable-next-line lines-between-class-members
   @Watch('count', { immediate: true })
   public fCount(value: number): void {
     if (value > 50) {
