@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button>click here</button>
+    <button @click="push">click here</button>
   </div>
 </template>
 <script lang="ts">

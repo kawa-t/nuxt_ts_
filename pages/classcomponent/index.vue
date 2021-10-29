@@ -1,12 +1,20 @@
 <template>
-  <div></div>
+  <div>
+    <AddButton @push="countUp"></AddButton>
+    <ClassVer :count="count"></ClassVer>
+  </div>
 </template>
 <script lang="ts">
 import Component from 'vue-class-component'
 import { Vue, Watch } from 'vue-property-decorator'
+import AddButton from '~/components/classversion/addButton.vue'
+import ClassVer from '~/components/classversion/classversionpractice.vue'
 
 @Component({
-  components: {},
+  components: {
+    AddButton,
+    ClassVer,
+  },
 })
 export default class ClassApp extends Vue {
   public count: number = 0

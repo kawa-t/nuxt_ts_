@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div>{{ count }}</div>
-    <div>{{ doubledCount }}</div>
-    <button>@emitで親に伝える</button>
+    <p>you click button {{ count }} times</p>
+    <p>your score : {{ doubledCount }} points</p>
   </div>
 </template>
 <script lang="ts">
