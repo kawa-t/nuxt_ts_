@@ -17,6 +17,18 @@ export default class TsBasic extends Vue {
     this.typeAssert(100 as any)
   }
 
+  enumClick() {
+    // 列挙型
+    enum Pref {
+      Tokyo,
+      Nagoya,
+      Oosaka,
+    }
+
+    const getPre: Pref = Pref.Tokyo
+    console.log(getPre)
+  }
+
   typeAssert(result: string) {
     return `結果は${result}です。`
   }
