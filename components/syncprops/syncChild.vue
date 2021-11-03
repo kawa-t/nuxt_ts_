@@ -1,20 +1,23 @@
 <template>
   <div>
-    <user-input-form></user-input-form>
+    <form action="">
+      <label>
+        メールアドレス
+        <input type="text" v-model="user.email" />
+      </label>
+      <label>
+        名前
+        <input type="text" v-model="user.name" />
+      </label>
+      <button type="submit" @click="$emit('submit')">登録</button>
+    </form>
   </div>
 </template>
 <script lang="ts">
-import Component from 'vue-class-component'
-import { Emit, Vue } from 'vue-property-decorator'
-import UserInputForm from '@/components/syncprops/syncChild.vue'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
-@Component({
-  components: {
-    UserInputForm,
-  },
-})
-export default class SyncParent extends Vue {
-  @Emit('push')
-  public push(): void {}
+@Component
+export default class SyncChild extends Vue {
+  @Prop({ type: Object, default: false }) user?: string
 }
 </script>
