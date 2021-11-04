@@ -3,11 +3,11 @@
     <form action="">
       <label>
         メールアドレス
-        <input type="text" v-model="user.email" />
+        <input v-model="user.email" type="text" />
       </label>
       <label>
         名前
-        <input type="text" v-model="user.name" />
+        <input v-model="user.name" type="text" />
       </label>
       <button type="submit" @click="$emit('submit')">登録</button>
     </form>
@@ -18,6 +18,6 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class SyncChild extends Vue {
-  @Prop({ type: Object, default: false }) user?: string
+  @Prop({ type: Object, default: () => ({}) }) user?: string
 }
 </script>
