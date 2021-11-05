@@ -1,4 +1,4 @@
 export const defaultUser = () => ({
-  name: '',
-  email: '',
+  name: 'テストだよ',
+  email: 'test@gmail.com',
 })

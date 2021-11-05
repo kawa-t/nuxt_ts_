@@ -1,14 +1,53 @@
 <template>
   <div>
-    <form action="">
-      <label>
-        メールアドレス
-        <input v-model="user.email" type="text" />
-      </label>
-      <label>
-        名前
-        <input v-model="user.name" type="text" />
-      </label>
+    <div>
+      子は親から渡ってきたデータが更新されたことを子から親に通知するために、.sync修飾子を使う
+    </div>
+    <form action="" class="flex flex-col">
+      <div>
+        <label>
+          メールアドレス
+          <input
+            v-model="user.email"
+            type="text"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-1/2
+              py-2
+              px-3
+              text-gray-700
+              leading-tight
+              focus:outline-none
+              focus:shadow-outline
+            "
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          名前
+          <input
+            v-model="user.name"
+            type="text"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-1/2
+              py-2
+              px-3
+              text-gray-700
+              leading-tight
+              focus:outline-none
+              focus:shadow-outline
+            "
+          />
+        </label>
+      </div>
       <button type="submit" @click="$emit('submit')">登録</button>
     </form>
   </div>

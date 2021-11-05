@@ -18,6 +18,9 @@
     <div>
       <nuxt-link to="/classcomponent">カウントアップ</nuxt-link>
     </div>
+    <div>
+      <nuxt-link to="/syncprops">sync</nuxt-link>
+    </div>
   </div>
 </template>
 <script>
