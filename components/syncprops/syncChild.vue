@@ -23,6 +23,8 @@
               focus:outline-none
               focus:shadow-outline
             "
+            :value="email"
+            @ipunt="$emit('update:email,$event.target.value')"
           />
         </label>
       </div>
@@ -45,6 +47,8 @@
               focus:outline-none
               focus:shadow-outline
             "
+            value="name"
+            @input="$emit('update:name', $event.target.value)"
           />
         </label>
       </div>
