@@ -23,7 +23,7 @@
               focus:outline-none
               focus:shadow-outline
             "
-            :value="email"
+            value="email"
             @ipunt="$emit('update:email,$event.target.value')"
           />
         </label>
@@ -52,7 +52,30 @@
           />
         </label>
       </div>
-      <button type="submit" @click="$emit('submit')">登録</button>
+      <button
+        type="submit"
+        class="
+          inline-block
+          bg-indigo-500
+          hover:bg-indigo-600
+          active:bg-indigo-700
+          focus-visible:ring
+          ring-indigo-300
+          text-white text-sm
+          md:text-base
+          font-semibold
+          text-center
+          rounded-lg
+          outline-none
+          transition
+          duration-100
+          px-8
+          py-3
+        "
+        @click="$emit('submit')"
+      >
+        登録
+      </button>
     </form>
   </div>
 </template>
