@@ -1,10 +1,6 @@
 <template>
   <div>
-    <user-input-form
-      :email.sync="user.email"
-      :name.sync="user.name"
-      @submit="createUser"
-    ></user-input-form>
+    <user-input-form v-bind.sync="user" @submit="createUser"></user-input-form>
   </div>
 </template>
 <script lang="ts">

@@ -3,7 +3,7 @@
     <div>
       子は親から渡ってきたデータが更新されたことを子から親に通知するために、.sync修飾子を使う
     </div>
-    <form action="" class="flex flex-col">
+    <form class="flex flex-col" @submit.prevent="$emit('send')">
       <div>
         <label>
           メールアドレス
