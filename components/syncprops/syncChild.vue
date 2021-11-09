@@ -4,7 +4,7 @@
       子は親から渡ってきたデータが更新されたことを子から親に通知するために、.sync修飾子を使う
     </div>
     <form class="flex flex-col" @submit.prevent="$emit('send')">
-      <div>
+      <div class="my-4">
         <label>
           メールアドレス
           <input
@@ -28,7 +28,7 @@
           />
         </label>
       </div>
-      <div>
+      <div class="my-4">
         <label>
           名前
           <input
