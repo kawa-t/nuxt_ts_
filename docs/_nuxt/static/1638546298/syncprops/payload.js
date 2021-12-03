@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/syncprops", {data:[{}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{478:function(e,n,t){"use strict";t.r(n);var c=t(104),o=Object(c.a)({name:"Pokedex",setup:function(){Object(c.c)((function(){}))}}),l=t(76),component=Object(l.a)(o,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,null,null);n.default=component.exports}}]);

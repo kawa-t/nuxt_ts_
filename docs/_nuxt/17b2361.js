@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{473:function(n,e,t){"use strict";t.r(e),t.d(e,"defaultUser",(function(){return o}));var o=function(){return{name:"テストだよ",email:"test@gmail.com"}}}}]);

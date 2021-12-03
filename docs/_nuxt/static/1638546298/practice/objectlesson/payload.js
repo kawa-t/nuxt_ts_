@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/practice/objectlesson", {data:[{}],fetch:{},mutations:[]});
