@@ -11,7 +11,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt_ts_',
+    title: 'public practice TypeScript',
     htmlAttrs: {
       lang: 'ja',
     },
