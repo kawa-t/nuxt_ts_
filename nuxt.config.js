@@ -2,6 +2,12 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: true,
+  router: {
+    base: '/nuxt_ts_/',
+  },
+  generate: {
+    dir: 'docs',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -14,7 +20,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        link: [
+          {
+            rel: 'icon',
+            type: 'image/x-icon',
+            href: 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>📎</text></svg>',
+          },
+        ],
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -56,13 +72,13 @@ export default {
     typography: true, // 言語に依存しないきれいな 置換 + 引用符 を有効にします。
   },
 
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content({ deep: true }).only(['path']).fetch()
-      return files.map((file) => (file.path === '/index' ? '/' : file.path))
-    },
-  },
+  // generate: {
+  //   async routes() {
+  //     const { $content } = require('@nuxt/content')
+  //     const files = await $content({ deep: true }).only(['path']).fetch()
+  //     return files.map((file) => (file.path === '/index' ? '/' : file.path))
+  //   },
+  // },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
