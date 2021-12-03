@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{494:function(n,e,t){"use strict";t.r(e);var c=t(104),l=t(489),o=Object(c.a)({components:{MiniPractice:l.default}}),r=t(76),component=Object(r.a)(o,(function(){var n=this.$createElement,e=this._self._c||n;return e("client-only",[e("div",[e("MiniPractice")],1)])}),[],!1,null,null,null);e.default=component.exports}}]);
